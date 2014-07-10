@@ -1,0 +1,5 @@
+html, body, .slides { padding: 0px; margin: 0px; overflow: hidden; height: 100%; width: 100%; }
+.slides { position: relative; }
+.slide { position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; }
+.slide { display: none; padding: 2vh; }
+.slide:target { display: block; }
