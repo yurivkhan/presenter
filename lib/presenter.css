@@ -15,3 +15,5 @@ html, body, .slides { padding: 0px; margin: 0px; overflow: hidden; height: 100%;
 .slide h6 { font-weight: bold; font-size: 0.5em; line-height: 3; margin: 1.5em 0em }
 
 .slide ul, .slide ol { padding-left: 1.5em }
+
+.slide.image { margin: 0vh; background-size: contain; background-repeat: no-repeat; background-position: center }
