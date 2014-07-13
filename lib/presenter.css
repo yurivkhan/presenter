@@ -7,6 +7,7 @@ html, body, .slides { padding: 0px; margin: 0px; overflow: hidden; height: 100%;
 .slide { font-size: 4.17vh; line-height: 1.5 } /* based on 24pt at 96ppi on 1024×768 */
 .slide p, .slide>ul, .slide>ol { margin: 0.75em 0em }
 
+.slide h1 { font-weight: normal; font-size: 3em; line-height: 1; margin: 0.25em 0em }
 .slide h2 { font-weight: normal; font-size: 2em; line-height: 1.5; margin: 0.375em 0em }
 .slide h3 { font-weight: normal; font-size: 1.5em; line-height: 1; margin: 0.5em 0em }
 .slide h4 { font-weight: bold; font-size: 1em; line-height: 1.5; margin: 0.75em 0em }
