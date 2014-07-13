@@ -3,3 +3,5 @@ html, body, .slides { padding: 0px; margin: 0px; overflow: hidden; height: 100%;
 .slide { position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; }
 .slide { display: none; padding: 2vh; }
 .slide:target { display: block; }
+
+.slide { font-size: 4.17vh; line-height: 1.5 } /* based on 24pt at 96ppi on 1024×768 */
