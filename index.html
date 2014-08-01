@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Presenter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" id="presenter-loader"
+	src="lib/presenter.js"></script>
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css" type="text/css" />
+<style type="text/css" media="screen">
+body { background-color: white; color: black; }
+pre { font-size: 0.75em; line-height: 2; }
+pre, p>code, li>code, blockquote>code {
+	background-color: #ecf0eb; color: black;
+	border: 1px solid #d3d7cf; border-radius: 0.125em;
+	padding-left: 0.25em; padding-right: 0.25em; white-space: pre-wrap }
+blockquote { margin-left: 0em; padding-left: 0.375em; border-left: 0.125em solid; }
+#s32 img, #s33 img { height: 40%; width: 40% }
+#s34 img, #s35 img { height: 0.75em; width: 0.75em }
+table { border-collapse: collapse; }
+td, th { border: 0.0625em solid #d3d7cf; padding: 0em 0.25em; }
+
+.special h2 {
+	color: white;
+	text-shadow:
+		-2px -2px 0 black,
+		2px -2px 0 black,
+		-2px 2px 0 black,
+		2px 2px 0 black;
+}
+
+#s40 ul { font-size: 0.75em; line-height: 2; column-count: 2; -moz-column-count: 2; -webkit-column-count: 2; }
+</style>
+</head>
+<body>
+<noscript id="markdown">
+# Presenter
+
+by Yuri Khan
+
+(Press `←`/`→` to change slides)
+
+----
+
+## What is Presenter?
+
+* A simple web-based presentation tool
+* using Markdown as source format
+* released under the [MIT license][mit]
+
+[mit]: http://opensource.org/licenses/MIT
+
+----
+
+## How do I control Presenter?
+
+* There is not much to control, just switch slides
+* To advance to the next slide, press any of the following keys:
+  `Space`, `→`, `↓`, `Page Down`, `n`, `f`
+* To go back: `Backspace`, `Shift`+`Space`, `←`, `↑`, `Page Up`, `p`, `b`
+* To jump to the first slide: `Home`, `a`, `^`, `g`
+* To the last slide: `End`, `e`, `$`, `G` (that’s `Shift`+`g`)
+* Also, use your browser controls to go fullscreen (`F11` in most of them)
+
+----
+
+## How do I create a presentation?
+
+* See the source of this one for an example (`Ctrl`+`u` in most browsers)
+
+```html
+&lt;!DOCTYPE html>
+&lt;html>&lt;head>&lt;title>Presenter&lt;/title>
+&lt;script type="text/javascript" id="presenter-loader"
+	src="http://yurivkhan.github.io/presenter/lib/presenter.js">&lt;/script>
+&lt;/head>&lt;body>
+&lt;noscript id="markdown">
+
+Write your slides here
+
+&lt;/noscript>
+&lt;/body>&lt;html>
+```
+
+----
+
+## What is Markdown?
+
+* A simple [text-based syntax][md] for authoring HTML, devised by John
+  Gruber
+* Markdown descends from a family of Wiki syntaxes, pioneered by the
+  [WikiWikiWeb][c2].
+
+[md]: http://daringfireball.net/projects/markdown/syntax
+[c2]: http://c2.com/cgi/wiki
+
+### Which dialect does Presenter use?
+
+* [Github Flavored Markdown][gfm] (GFM).
+* More precisely, GFM as rendered by the [marked][] JS library.
+
+[gfm]: https://help.github.com/articles/github-flavored-markdown
+[marked]: https://github.com/chjj/marked
+
+----
+
+## How do I delimit slides?
+
+* With anything that produces a horizontal rule in Markdown: a
+  sequence of three or more hyphens, underscores or asterisks.
+
+### But how do I then produce a horizontal rule?
+
+* Nohow. It is expected that you won’t need one.
+
+----
+
+## How do I do headings?
+
+```markdown
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+```
+
+----
+
+# Heading 1
+
+## Heading 2
+
+### Heading 3
+
+#### Heading 4
+
+##### Heading 5
+
+###### Heading 6
+
+----
+
+Alternatively:
+
+```markdown
+Heading 1
+=========
+
+Heading 2
+---------
+```
+
+Heading 1
+=========
+
+Heading 2
+---------
+
+----
+
+## How do I do paragraphs?
+
+Any run of consecutive lines becomes a paragraph. Paragraphs are
+separated with empty lines.
+
+```markdown
+Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquip ex ea commodo consequat.
+```
+
+----
+
+Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+nisi ut aliquip ex ea commodo consequat.
+
+(Note that it doesn’t matter where you wrap.)
+
+----
+
+## How do I do a line break?
+
+End a line with two or more spaces.
+
+```markdown
+This line is  
+broken.
+```
+
+This line is  
+broken.
+
+----
+
+## How do I do a blockquote?
+
+The same way you quote an email.
+
+```markdown
+>> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+>> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+>
+> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+> nisi ut aliquip ex ea commodo consequat.
+```
+
+----
+
+>> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+>> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+>
+> Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+> nisi ut aliquip ex ea commodo consequat.
+
+Observe that blockquotes can nest.
+
+----
+
+## How do I do lists?
+
+Bulleted lists can be marked with `*`, `+` or `-`:
+
+```markdown
+* One
+* Two
+* Three
+```
+
+* One
+* Two
+* Three
+
+----
+
+## How do I do lists?
+
+Bulleted lists can be marked with `*`, `+` or `-`:
+
+```markdown
++ One
++ Two
++ Three
+```
+
++ One
++ Two
++ Three
+
+----
+
+## How do I do lists?
+
+Bulleted lists can be marked with `*`, `+` or `-`:
+
+```markdown
+- One
+- Two
+- Three
+```
+
+- One
+- Two
+- Three
+
+It doesn’t matter which.
+
+----
+
+## How do I do lists?
+
+Numbered lists are just numbered.
+
+```markdown
+1. Alpha
+2. Beta
+3. Gamma
+```
+
+1. Alpha
+2. Beta
+3. Gamma
+
+----
+
+## How do I do lists?
+
+It’s not necessary to preserve continuity.
+
+```markdown
+1. Alpha
+1. Beta
+1. Gamma
+```
+
+1. Alpha
+1. Beta
+1. Gamma
+
+----
+
+## How do I do lists?
+
+Lists can be nested:
+
+```markdown
+* One
+  1. Alpha
+  2. Beta
+* Two
+```
+
+* One
+  1. Alpha
+  2. Beta
+* Two
+
+----
+
+## How do I do lists?
+
+Lists can contain paragraphs:
+
+```markdown
+* Lorem ipsum dolor sit amet.
+
+  Consectetur adipiscing elit.
+
+* Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+```
+
+* Lorem ipsum dolor sit amet.
+
+  Consectetur adipiscing elit.
+
+* Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+----
+
+## How do I do lists?
+
+Or blockquotes:
+
+```markdown
+* Lorem ipsum dolor sit amet.
+
+  > Consectetur adipiscing elit.
+
+* Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+```
+
+* Lorem ipsum dolor sit amet.
+
+  > Consectetur adipiscing elit.
+
+* Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+----
+
+## How do I do code blocks?
+
+Indent them with four spaces:
+
+```markdown
+    int main(int argv, char** argc)
+    {
+    }
+```
+
+    int main(int argv, char** argc)
+    {
+    }
+
+----
+
+## How do I do code blocks?
+
+Or fence them with `​```​`, optionally specifying a language.
+
+    ```c
+    int main(int argv, char** argc)
+    {
+    }
+    ```
+
+```c
+int main(int argv, char** argc)
+{
+}
+```
+
+----
+
+## How do I enable syntax highlighting?
+
+* In fact it’s always on, for fenced blocks with language specified.
+  It’s just that Presenter does not supply a default stylesheet for
+  code.
+* Choose one of [Highlight.js styles][styles] (warning: slow page)
+* Find the corresponding [file name][files]
+* Include it like this (mind the `.min` suffix!):
+
+```html
+&lt;link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.1/styles/default.min.css">
+```
+
+* Or if none of the existing styles please you, use the [class
+  reference][classes] to design your own.
+
+[styles]: http://highlightjs.org/static/test.html
+[files]: https://github.com/isagalaev/highlight.js/tree/master/src/styles
+[classes]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
+
+----
+
+## What if I’m talking about HTML?
+
+* You’ll have to escape each left angle bracket `&lt;` as `&amp;lt;`.
+* Alternatively, replace `&lt;pre id="markdown">` with `&lt;script
+  type="text/markdown" id="markdown">`.
+  * Then you can use `&lt;` freely.
+  * Except for the substring `&lt;/script>`.
+* It’s not strictly necessary to escape `&gt;`, but you can use
+  `&amp;gt;` for symmetry.
+
+----
+
+## How do I emphasize text?
+
+You can use single asterisks or underscores for normal emphasis, and
+double them for strong emphasis. Strike text out with double tildes.
+Use backticks for inline code.
+
+```markdown
+*Normal emphasis* _Normal emphasis_  
+**Strong emphasis** __Strong emphasis__  
+~~Strikeout~~ underscores_in_identifiers `code`
+```
+
+*Normal emphasis* _Normal emphasis_  
+**Strong emphasis** __Strong emphasis__  
+~~Strikeout~~ underscores_in_identifiers `code`
+
+Observe that underscores in identifiers don’t cause emphasis.
+
+----
+
+## How do I do links?
+
+Links are automatically hyperlinked:
+
+```markdown
+http://github.com/
+```
+
+http://github.com/
+
+----
+
+## How do I do links?
+
+Mark a link explicitly, inline:
+
+```markdown
+Fork this on [GitHub](http://github.com/)
+```
+
+Fork this on [GitHub](http://github.com/)
+
+----
+
+## How do I do links?
+
+Mark a link explicitly, reference-style:
+
+```markdown
+Fork this on [GitHub][1]
+
+[1]: http://github.com/
+```
+
+Fork this on [GitHub][1]
+
+[1]: http://github.com/
+
+**Note** that reference IDs have to be unique throughout your
+presentation. You can’t reuse `[1]` in each slide.
+
+----
+
+## How do I do links?
+
+Omit the reference:
+
+```markdown
+Fork this on [GitHub][]
+
+[GitHub]: http://github.com/
+```
+
+Fork this on [GitHub][]
+
+[GitHub]: http://github.com/
+
+----
+
+## How do I do images?
+
+Inline style:
+
+```markdown
+![Alt text](test/screenshot.png "Optional tooltip")
+```
+
+![Alt text](test/screenshot.png "Optional tooltip")
+
+----
+
+## How do I do images?
+
+Reference style:
+
+```markdown
+![Alt text][sshot]
+
+[sshot]: test/screenshot.png "Optional tooltip"
+```
+
+![Alt text][sshot]
+
+[sshot]: test/screenshot.png "Optional tooltip"
+
+----
+
+## How do I do images?
+
+Images do not have to be the only thing in a paragraph:
+
+```markdown
+Fork this on ![](https://assets-cdn.github.com/favicon.ico)GitHub
+```
+
+Fork this on ![](https://assets-cdn.github.com/favicon.ico)GitHub
+
+----
+
+## How do I do images?
+
+Images can be wrapped in links:
+
+```markdown
+Fork this on [![][gh-icon]GitHub][gh]
+
+[gh-icon]: https://assets-cdn.github.com/favicon.ico
+[gh]: http://github.com/
+```
+
+Fork this on [![][gh-icon]GitHub][gh]
+
+[gh-icon]: https://assets-cdn.github.com/favicon.ico
+[gh]: http://github.com/
+
+----
+
+![](test/screenshot.png)
+
+## How do I do images?
+
+If an image is the first thing on a slide, it becomes the background.
+
+----
+
+![special](test/screenshot.png)
+
+## How do I do images?
+
+When a background image is used,  the words in brackets become classes
+of the slide, to help you style your image slides separately.
+
+```markdown
+![special](test/screenshot.png)
+```
+
+```css
+.special h2 {
+	color: white;
+	text-shadow:
+		-2px -2px 0 black,
+		2px -2px 0 black,
+		-2px 2px 0 black,
+		2px 2px 0 black;
+}
+```
+
+----
+
+## How do I do tables?
+
+Draw colums with vertical bars. Separate the head with hyphens.
+Specify alignment with colons.
+
+```markdown
+|Left|Center|Right|
+|----|:----:|----:|
+|1   |  2   |    3|
+```
+
+|Left|Center|Right|
+|----|:----:|----:|
+|1   |  2   |    3|
+
+----
+
+## How do I do tables?
+
+You don’t have to maintain the columns.
+
+```markdown
+|Left|Center|Right|
+|-|:-:|-:|
+|1|2|3|
+```
+
+|Left|Center|Right|
+|-|:-:|-:|
+|1|2|3|
+
+----
+
+## Index
+
+* [What is Presenter?](#s2)
+* [How do I control Presenter?](#s3)
+* [How do I create a presentation?](#s4)
+* [What is Markdown?](#s5)
+* [How do I delimit slides?](#s6)
+* [How do I do headings?](#s7)
+* [How do I do paragraphs?](#s10)
+* [How do I do a line break?](#s12)
+* [How do I do a blockquote?](#s13)
+* [How do I do lists?](#s15)
+* [How do I do code blocks?](#s23)
+* [How do I enable syntax highlighting?](#s25)
+* [What if I’m talking about HTML?](#s26)
+* [How do I emphasize text?](#s27)
+* [How do I do links?](#s28)
+* [How do I do images?](#s32)
+* [How do I do tables?](#s38)
+* [Questions? Suggestions?](#s41)
+
+----
+
+## Questions? Suggestions?
+
+* GitHub project: https://github.com/yurivkhan/presenter/
+* File [issues](https://github.com/yurivkhan/presenter/issues)
+* Fork and send [pull requests](https://github.com/yurivkhan/presenter/pulls)
+
+</noscript>
+</body>
+</html>
